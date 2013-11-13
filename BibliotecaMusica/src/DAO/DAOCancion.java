@@ -38,7 +38,7 @@ public class DAOCancion {
         //Log.rutea("Pais Leer " + pais.toString());
         return true;
     } 
-    public static ArrayList<Cancion> sqlSelectTodos(Cancion cancion){
+    /*public static ArrayList<Cancion> sqlSelectTodos(Cancion cancion){
         ArrayList<Cancion> array = new ArrayList<Cancion>();
         String sql = "select * from cancion where 1 = 1";
         
@@ -52,6 +52,25 @@ public class DAOCancion {
         while (BD.getInstance().sqlFetch())
         {
             array.add(new Cancion(BD.getInstance().getInt("id"), BD.getInstance().getString("nombre")));
+        }
+        return array;
+    }*/
+    public static ArrayList<Cancion> sqlSelectTodos(Cancion cancion){
+        ArrayList<Cancion> array = new ArrayList<Cancion>();
+        String sql = "select * from cancion where 1 = 1";
+        
+       // if(String.valueOf(inicio) != null)
+        //{
+          //  if(String.valueOf(fin) != null)
+            //{
+              //  sql+= " and eq_nombre like '%" + cancion.getNombre() + "%'";
+                //sql+= " and eq_cantidad_jugadores '%" + genero.getCantidad_jugadores() + "'%";//cambiar
+            //}
+        //}
+        if(!BD.getInstance().sqlSelect(sql)) return array;
+        while (BD.getInstance().sqlFetch())
+        {
+            array.add(new Cancion(BD.getInstance().getInt("id"), BD.getInstance().getString("nombre"), BD.getInstance().getInt("idDisco")));
         }
         return array;
     }

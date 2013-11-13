@@ -11,6 +11,15 @@ package Entity;
 public class Disco {
     private int id;
     private String nombre;
+    private int idArtista;
+
+    public int getIdArtista() {
+        return idArtista;
+    }
+
+    public void setIdArtista(int idArtista) {
+        this.idArtista = idArtista;
+    }
 
     public int getId() {
         return id;
@@ -28,9 +37,10 @@ public class Disco {
         this.nombre = nombre;
     }
 
-    public Disco(int id, String nombre) {
+    public Disco(int id, String nombre,int idArtista) {
        setId(id);
-        setNombre(nombre);                
+        setNombre(nombre);   
+        setIdArtista(idArtista);
     }
     
     public Disco(int id)
@@ -42,10 +52,13 @@ public class Disco {
     {
         setNombre(nombre);
     }
+    
+    
 
     @Override
     public String toString() {
-        return "Disco{" + "id=" + id + ", nombre=" + nombre + '}';
+        return "Disco{" + "id=" + id + ", nombre=" + nombre + ", idArtista=" + idArtista + '}';
     }
-    
+
+   
 }

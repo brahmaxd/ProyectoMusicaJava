@@ -1,15 +1,16 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Entity;
 
 /**
  *
- * @author Abraham
+ * @author Juansho
  */
 public class Usuarios {
-    
     private String usuario;
     private String clave;
     private int esAdmin; 
@@ -46,7 +47,6 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios{" + "usuario=" + usuario + ", clave=" + clave + ", esAdmin=" + esAdmin + '}';
+        return "Usuarios{" + "usuario=" + getUsuario() + ", clave=" + getClave() + ", esAdmin=" + getEsAdmin() + '}';
     }
-    
 }

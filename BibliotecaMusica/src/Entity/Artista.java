@@ -33,6 +33,15 @@ public class Artista {
         setNombre(nombre); 
                
     }
+    public Artista (String nombre)
+    {
+    setNombre(nombre);
+    }
+    
+    public Artista (int id)
+    {
+    setId(id);
+    }
 
     @Override
     public String toString() {

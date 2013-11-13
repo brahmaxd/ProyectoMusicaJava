@@ -1,17 +1,15 @@
-
-
 <%-- 
-    Document   : FrDiscoCliente
-    Created on : 22-10-2013, 11:33:09 PM
-    Author     : 
+    Document   : FrGeneroCliente
+    Created on : 13-11-2013, 11:32:32 AM
+    Author     : Abraham
 --%>
 
-<%@page import="DAO.DAODisco"%>
-<%@page import="Entity.Disco"%>
+<%@page import="DAO.DAOGenero"%>
 <%@page import="java.util.ArrayList"%>
-
-
+<%@page import="Entity.Genero"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +17,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="DiscoCliente.jsp" method="POST">
+        <form action="FrGeneroCliente.jsp" method="POST">
         <table border="1">
                 <tbody>
                     <tr>
@@ -31,6 +29,7 @@
                 </tbody>
             </table>
         </form>
+
         <%
                 String grilla = "";            
                 grilla="<table border='1'>";
@@ -41,8 +40,8 @@
                 grilla+="<th>Id Artista</th>";
                 grilla+="</tr>";
                 grilla+="<thead>";
-                Disco disco = new Disco(request.getParameter("txNombre"));
-                ArrayList<Disco> array = DAODisco.sqlSelectTodos(disco);
+                Genero genero = new Genero(request.getParameter("txNombre"));
+                ArrayList<Genero> array = DAOGenero.sqlSelectTodos(genero);
                 for (int x=0; x<array.size(); x++)
                 {
                     grilla+="<tr>";
@@ -56,3 +55,4 @@
             <%=grilla%>
     </body>
 </html>
+

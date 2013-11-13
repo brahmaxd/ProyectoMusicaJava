@@ -40,7 +40,7 @@ public class DAODisco {
         //Log.rutea("Pais Leer " + pais.toString());
         return true;
     } 
-    public static ArrayList<Disco> sqlSelectTodos(Disco disco){
+   /* public static ArrayList<Disco> sqlSelectTodos(Disco disco){
         ArrayList<Disco> array = new ArrayList<Disco>();
         String sql = "select * from disco where 1 = 1";
         
@@ -54,6 +54,25 @@ public class DAODisco {
         while (BD.getInstance().sqlFetch())
         {
             array.add(new Disco(BD.getInstance().getInt("id"), BD.getInstance().getString("nombre")));
+        }
+        return array;
+    }*/
+     public static ArrayList<Disco> sqlSelectTodos(Disco disco){
+        ArrayList<Disco> array = new ArrayList<Disco>();
+        String sql = "select * from disco where 1 = 1 ";
+        
+      /*  if(String.valueOf(inicio) != null)
+        {
+            if(String.valueOf(fin) != null)
+            {
+                sql+= " and eq_nombre like '%" + disco.getNombre() + "%'";
+                //sql+= " and eq_cantidad_jugadores '%" + genero.getCantidad_jugadores() + "'%";//cambiar
+            }
+        }*/
+        if(!BD.getInstance().sqlSelect(sql)) return array;
+        while (BD.getInstance().sqlFetch())
+        {
+            array.add(new Disco(BD.getInstance().getInt("id"), BD.getInstance().getString("nombre"), BD.getInstance().getInt("idArtista")));
         }
         return array;
     }

@@ -1,17 +1,15 @@
-
-
 <%-- 
-    Document   : FrDiscoCliente
-    Created on : 22-10-2013, 11:33:09 PM
-    Author     : 
+    Document   : FrCancionCliente
+    Created on : 13-11-2013, 11:22:32 AM
+    Author     : Abraham
 --%>
 
-<%@page import="DAO.DAODisco"%>
-<%@page import="Entity.Disco"%>
+<%@page import="DAO.DAOCancion"%>
 <%@page import="java.util.ArrayList"%>
-
-
+<%@page import="Entity.Cancion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +17,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="DiscoCliente.jsp" method="POST">
+        <form action="FrCancionCliente.jsp" method="POST">
         <table border="1">
                 <tbody>
                     <tr>
@@ -31,6 +29,7 @@
                 </tbody>
             </table>
         </form>
+
         <%
                 String grilla = "";            
                 grilla="<table border='1'>";
@@ -38,17 +37,17 @@
                 grilla+="<tr>";
                 grilla+="<th>Codigo</th>";
                 grilla+="<th>Nombre</th>";
-                grilla+="<th>Id Artista</th>";
+                grilla+="<th>Id Disco</th>";
                 grilla+="</tr>";
                 grilla+="<thead>";
-                Disco disco = new Disco(request.getParameter("txNombre"));
-                ArrayList<Disco> array = DAODisco.sqlSelectTodos(disco);
+                Cancion cancion = new Cancion(request.getParameter("txNombre"));
+                ArrayList<Cancion> array = DAOCancion.sqlSelectTodos(cancion);
                 for (int x=0; x<array.size(); x++)
                 {
                     grilla+="<tr>";
                     grilla+="<td><a href=\"discoAdmin.jsp?cod="+array.get(x).getId()+"\">" + array.get(x).getId()+  "</a></td>";
                     grilla+="<td>" + array.get(x).getNombre()+  "</td>";
-                    grilla+="<td>" + array.get(x).getIdArtista()+  "</td>";
+                    grilla+="<td>" + array.get(x).getIdDisco()+  "</td>";
                     grilla+="</tr>";
                 }
                 grilla+="</table>";
@@ -56,3 +55,4 @@
             <%=grilla%>
     </body>
 </html>
+

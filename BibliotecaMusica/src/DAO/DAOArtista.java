@@ -41,7 +41,7 @@ public class DAOArtista {
     } 
     public static ArrayList<Artista> sqlSelectTodos(Artista artista){
         ArrayList<Artista> array = new ArrayList<Artista>();
-        String sql = "select * from cancion where 1 = 1";
+        String sql = "select * from artista where 1 = 1";
         
         if(artista.getNombre()!= null){
             

@@ -11,9 +11,10 @@ import java.util.ArrayList;
 /**
  *
  * @author Abraham
- */
-public class DAOUsuarios {
-     public static boolean sqlInsertar(Usuarios usuarios){
+ * 
+ * */
+public class DAOUsuarios {   
+    /*public static boolean sqlInsertar(Usuarios usuarios){
         String stSql = "insert into usuarios (usuarios,clave,esAdmin) values ('" + usuarios.getUsuario() + "','" + usuarios.getClave() + "')";
         BD.getInstance().sqlEjecutar(stSql);
         return true;
@@ -55,5 +56,66 @@ public class DAOUsuarios {
         }
         return array;
     }
-    
+ */   
+    public static Boolean sqlInsert(Usuarios usuario)
+        {
+            String sql = "Insert into usuarios (usuario, clave, esAdmin) values ('" + usuario.getUsuario() + "','" + usuario.getClave() + "','" + usuario.getEsAdmin() + "')";
+            BD bd = Conexion.BD.getInstance();
+            bd.sqlEjecutar(sql);
+            return true;
+        }
+
+        public static Boolean sqlDelete(Usuarios usuario)
+        {
+            String sql = "Delete from usuarios where usuario = '" + usuario.getUsuario() + "'";
+            BD bd = Conexion.BD.getInstance();
+            bd.sqlEjecutar(sql);
+            return true;
+        }
+
+        public static Boolean sqlUpdate(Usuarios usuario)
+        {
+            String sql = "Update usuarios set clave '" + usuario.getClave() + "', esAdmin = '" + usuario.getEsAdmin() + "' where usuario = '" + usuario.getUsuario() + "'";
+            BD bd = Conexion.BD.getInstance();
+            bd.sqlEjecutar(sql);
+            return true;
+        }
+
+        public static Usuarios sqlLeer(Usuarios usuario)
+        {
+            String sql = "Select * from usuarios where usuario = '" + usuario.getUsuario() + "'";
+            BD bd = Conexion.BD.getInstance();
+            bd.sqlEjecutar(sql);
+            return usuario;
+        }
+
+       /* public static Boolean esAdmin(Usuarios usuario)
+        {
+            String sql = "Select esAdmin from usuarios where usuario = '" + usuario.getUsuario() + "'";
+            BD bd = Conexion.BD.getInstance();
+            DataTable dt = bd.sqlSelect(sql);
+            if (dt.Rows.Count == 0)
+            {
+                return false;
+            }
+            
+            int admin = int.Parse(dt.Rows[0]["esAdmin"].ToString());
+            if (admin == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static Boolean login(Usuarios usuario)
+        {
+            String sql = "Select * from usuarios where usuario = '" + usuario.getUsuario()+ "' and clave = '" + usuario.getClave() + "'";
+            BD bd = Conexion.BD.getInstance();
+            DataTable dt = bd.sqlSelect(sql);
+            if (dt.Rows.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }*/
 }

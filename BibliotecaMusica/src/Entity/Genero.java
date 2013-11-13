@@ -11,6 +11,16 @@ package Entity;
 public class Genero {
     private int id;
     private String nombre;
+    private int idArtista;
+
+    public int getIdArtista() {
+        return idArtista;
+    }
+
+    public void setIdArtista(int idArtista) {
+        this.idArtista = idArtista;
+    }
+    
 
     public int getId() {
         return id;
@@ -28,15 +38,26 @@ public class Genero {
         this.nombre = nombre;
     }
 
-    public Genero(int id, String nombre) {
+    public Genero(int id, String nombre,int IdArtista) {
        setId(id);
         setNombre(nombre); 
+        setIdArtista(idArtista);
                
     }
+    public Genero(String nombre)
+    {
+        setNombre(nombre);
+    }
 
+    public Genero (int id)
+    {
+        setId(id);
+    }
     @Override
     public String toString() {
-        return "Disco{" + "id=" + id + ", nombre=" + nombre + '}';
+        return "Genero{" + "id=" + id + ", nombre=" + nombre + ", idArtista=" + idArtista + '}';
     }
+
+  
     
 }
