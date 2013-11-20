@@ -8,7 +8,7 @@ package Entity;
 
 /**
  *
- * @author Juansho
+ *
  */
 public class Usuarios {
     private String usuario;
